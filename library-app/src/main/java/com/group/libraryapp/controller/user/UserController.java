@@ -1,6 +1,5 @@
 package com.group.libraryapp.controller.user;
 
-import com.group.libraryapp.domain.User;
 import com.group.libraryapp.dto.user.request.UserCreateRequest;
 import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -47,6 +45,13 @@ public class UserController {
     // 유저 이름 수정
     @PutMapping("/user")
     public void updateUser(@RequestBody UserUpdateRequest request) {
+        // 데이터 존재 여부 확인
+        String readSql = "select * from user where id = ?";
+        boolean isUserNotExist = jdbcTemplate.query(readSql, (rs, rowNum) -> 0, request.getId()).isEmpty(); // true -> 데이터 없음, false -> 데이터 있음
+        if (isUserNotExist) {
+            throw new IllegalArgumentException("존재하지 않는 회원입니다.");
+        }
+
         String sql = "update user set name = ? where id = ?";
         jdbcTemplate.update(sql, request.getName(), request.getId());
     }
@@ -54,6 +59,13 @@ public class UserController {
     // 유저 삭제
     @DeleteMapping("/user")
     public void deleteUser(@RequestParam String name) {
+        // 데이터 존재 여부 확인
+        String readSql = "select * from user where name = ?";
+        boolean isUserNotExist = jdbcTemplate.query(readSql, (rs, rowNum) -> 0, name).isEmpty(); // true -> 데이터 없음, false -> 데이터 있음
+        if (isUserNotExist) {
+            throw new IllegalArgumentException("존재하지 않는 회원입니다.");
+        }
+
         String sql = "delete from user where name = ?";
         jdbcTemplate.update(sql, name);
     }
