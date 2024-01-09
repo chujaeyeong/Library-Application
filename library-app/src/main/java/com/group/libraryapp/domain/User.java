@@ -29,6 +29,14 @@ public class User {
         return age;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     protected User() {
     } // 기본생성자 미리 만들어두기
+
+    public void updateName(String name) {
+        this.name = name;
+    }
 }
