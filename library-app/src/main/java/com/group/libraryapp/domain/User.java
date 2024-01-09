@@ -1,8 +1,16 @@
 package com.group.libraryapp.domain;
 
+import jakarta.persistence.*;
+
+@Entity
 public class User {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 20)
     private String name;
+
     private Integer age;
 
     public User(String name, Integer age) {
@@ -20,4 +28,7 @@ public class User {
     public Integer getAge() {
         return age;
     }
+
+    protected User() {
+    } // 기본생성자 미리 만들어두기
 }
