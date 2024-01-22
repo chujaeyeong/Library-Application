@@ -1,6 +1,10 @@
 package com.group.libraryapp.domain.user;
 
+import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -12,6 +16,15 @@ public class User {
     private String name;
 
     private Integer age;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
+
+
+    // 기본생성자 미리 만들어두기
+    protected User() {
+    }
+
 
     public User(String name, Integer age) {
         if (name == null || name.isBlank()) {
@@ -33,10 +46,21 @@ public class User {
         return id;
     }
 
-    protected User() {
-    } // 기본생성자 미리 만들어두기
 
     public void updateName(String name) {
         this.name = name;
+    }
+
+
+    public void loanBook(String bookName) {
+        this.userLoanHistories.add(new UserLoanHistory(this, bookName));
+    }
+
+    public void returnBook(String bookName) {
+        UserLoanHistory targetHistory = this.userLoanHistories.stream()
+                .filter(history -> history.getBookName().equals(bookName))
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
+        targetHistory.doReturn();
     }
 }
