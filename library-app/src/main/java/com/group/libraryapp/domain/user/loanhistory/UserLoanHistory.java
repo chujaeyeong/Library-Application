@@ -10,7 +10,7 @@ public class UserLoanHistory {
     private Long id = null;
 
     @JoinColumn(nullable = false)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     private String bookName;
