@@ -54,8 +54,30 @@
 <br>
 <br>
 
+## 5. API 명세서
 
-## 5. 기능 구현
+#### 💁🏻‍♀️ `사용자` (UserController)
+
+| 기능          | URL     | Method | Request Body                                              | Description                |
+|---------------|---------|--------|-----------------------------------------------------------|----------------------------|
+| 유저 저장     | `/user` | POST   | ```json { "name": "String (null 불가능)", "age": "Integer (null 불가능)" } ``` | 새로운 유저를 저장합니다.  |
+| 유저 전체 조회 | `/user` | GET    | -                                                         | 모든 유저 정보를 조회합니다. |
+| 유저 이름 수정 | `/user` | PUT    | ```json { "id": "Long (null 불가능)", "name": "String (null 불가능)" } ```     | 기존 유저의 이름을 수정합니다. |
+| 유저 삭제     | `/user` | DELETE | `name` (String)                                           | 유저를 삭제합니다.         |
+
+
+#### 📔 `책`  (BookController)
+
+| 기능          | URL          | Method | Request Body                                                                  | Description         |
+|---------------|--------------|--------|------------------------------------------------------------------------------|---------------------|
+| 책 저장       | `/book`      | POST   | ```json { "name": "String (null 불가능)" } ```                                   | 새로운 책을 저장합니다.  |
+| 책 대출 처리  | `/book/loan` | POST   | ```json { "userId": "Long (null 불가능)", "bookId": "Long (null 불가능)" } ```      | 책을 대출 처리합니다.   |
+| 책 반납 처리  | `/book/return`| PUT   | ```json { "userId": "Long (null 불가능)", "bookId": "Long (null 불가능)" } ```      | 책을 반납 처리합니다.   |
+
+<br>
+<br>
+
+## 6. 기능 구현
 
 <img width="800" alt="Library-Application 편집완료_배속완료_용량압축" src="https://github.com/chujaeyeong/Library-Application/assets/123634960/10ab3f83-9d7b-451d-bd74-4ee509ebe067">
 
@@ -65,7 +87,7 @@
 <br>
 <br>
 
-## 6. 개발 후기 
+## 7. 개발 후기 
 * 국비지원 교육 이후에 새로 배웠던 JPA를 기반으로 Spring Data JPA 를 직접 적용하는 연습을 할 수 있었습니다.
 * 국비지원 교육 과정에서는 깊이 고민을 못 했던 스프링 MVC 구조, 기능에 대해 고민하면서 개발할 수 있었습니다. 
 * JPA 강의를 들으면서 진행해서 시간이 조금 걸렸지만, 빠르게 개발부터 배포까지 한 사이클을 돌릴 수 있어서 전반적인 API 개발 과정을 복습할 수 있었습니다. 
