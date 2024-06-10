@@ -68,11 +68,11 @@
 
 #### 📔 `책`  (BookController)
 
-| 기능          | URL           | Method  | Request Body (JSON)                                                  | Description        |
-|---------------|--------------|---------|----------------------------------------------------------------------|--------------------|
-| 책 저장       | `/book`        | POST    | `{"name": "String (null 불가능)"}`                                    | 새로운 책을 저장합니다.  |
-| 책 대출 처리   | `/book/loan`   | POST    | `{"userId": "Long (null 불가능)", "bookId": "Long (null 불가능)"}`      | 책을 대출 처리합니다.   |
-| 책 반납 처리   | `/book/return` | PUT     | `{"userId": "Long (null 불가능)", "bookId": "Long (null 불가능)"}`      | 책을 반납 처리합니다.   |
+| 기능     | URL            | Method  | Request Body (JSON)                                                  | Description        |
+|---------|----------------|---------|----------------------------------------------------------------------|--------------------|
+| 책 저장   | `/book`        | POST    | `{"name": "String (null 불가능)"}`                                    | 새로운 책을 저장합니다.  |
+| 책 대출   | `/book/loan`   | POST    | `{"userId": "Long (null 불가능)", "bookId": "Long (null 불가능)"}`      | 책을 대출 처리합니다.   |
+| 책 반납   | `/book/return` | PUT     | `{"userId": "Long (null 불가능)", "bookId": "Long (null 불가능)"}`      | 책을 반납 처리합니다.   |
 
 <br>
 <br>
