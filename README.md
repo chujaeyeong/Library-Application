@@ -58,21 +58,21 @@
 
 #### 💁🏻‍♀️ `사용자` (UserController)
 
-| 기능          | URL     | Method | Request Body                                              | Description                |
-|---------------|---------|--------|-----------------------------------------------------------|----------------------------|
-| 유저 저장     | `/user` | POST   | ```json { "name": "String (null 불가능)", "age": "Integer (null 불가능)" } ``` | 새로운 유저를 저장합니다.  |
-| 유저 전체 조회 | `/user` | GET    | -                                                         | 모든 유저 정보를 조회합니다. |
-| 유저 이름 수정 | `/user` | PUT    | ```json { "id": "Long (null 불가능)", "name": "String (null 불가능)" } ```     | 기존 유저의 이름을 수정합니다. |
-| 유저 삭제     | `/user` | DELETE | `name` (String)                                           | 유저를 삭제합니다.         |
+| 기능          | URL     | Method   | Request Body (JSON)                                            | Description                |
+|--------------|---------|----------|----------------------------------------------------------------|----------------------------|
+| 유저 저장       | `/user` | POST    | `{"name": "String (null 불가능)", "age": "Integer (null 불가능)"}` | 새로운 유저를 저장합니다.        |
+| 유저 전체 조회   | `/user` | GET     | -                                                               | 모든 유저 정보를 조회합니다.     |
+| 유저 이름 수정   | `/user` | PUT     | `{"id": "Long (null 불가능)", "name": "String (null 불가능)"}`     | 기존 유저의 이름을 수정합니다.    |
+| 유저 삭제       | `/user` | DELETE  | `name` (String)                                                 | 유저를 삭제합니다.             |
 
 
 #### 📔 `책`  (BookController)
 
-| 기능          | URL          | Method | Request Body                                                                  | Description         |
-|---------------|--------------|--------|------------------------------------------------------------------------------|---------------------|
-| 책 저장       | `/book`      | POST   | ```json { "name": "String (null 불가능)" } ```                                   | 새로운 책을 저장합니다.  |
-| 책 대출 처리  | `/book/loan` | POST   | ```json { "userId": "Long (null 불가능)", "bookId": "Long (null 불가능)" } ```      | 책을 대출 처리합니다.   |
-| 책 반납 처리  | `/book/return`| PUT   | ```json { "userId": "Long (null 불가능)", "bookId": "Long (null 불가능)" } ```      | 책을 반납 처리합니다.   |
+| 기능          | URL           | Method  | Request Body (JSON)                                                  | Description        |
+|---------------|--------------|---------|----------------------------------------------------------------------|--------------------|
+| 책 저장       | `/book`        | POST    | `{"name": "String (null 불가능)"}`                                    | 새로운 책을 저장합니다.  |
+| 책 대출 처리   | `/book/loan`   | POST    | `{"userId": "Long (null 불가능)", "bookId": "Long (null 불가능)"}`      | 책을 대출 처리합니다.   |
+| 책 반납 처리   | `/book/return` | PUT     | `{"userId": "Long (null 불가능)", "bookId": "Long (null 불가능)"}`      | 책을 반납 처리합니다.   |
 
 <br>
 <br>
