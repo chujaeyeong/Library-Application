@@ -47,9 +47,7 @@
 
 ## 4. ERD 
 
-<img width="800" alt="Library-Application ERD" src="https://github.com/chujaeyeong/Library-Application/assets/123634960/8d4f79f1-f80c-4ccc-8281-d7e32ea947bd">
-
-* 연관관계를 가지는 엔티티는 user, user_loan_history 입니다. (사용자 - 대출이력)
+<img width="800" alt="Library-Application ERD" src="https://github.com/chujaeyeong/Library-Application/assets/123634960/6dec880f-fb35-4914-baa8-7d2e94decd98">
 
 <br>
 <br>
